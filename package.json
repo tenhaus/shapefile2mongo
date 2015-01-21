@@ -1,0 +1,26 @@
+{
+  "name": "shapefile2mongo",
+  "version": "0.0.1",
+  "description": "Converts shapefiles to geojson and imports them to mongo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tenhaus/shapefile2mongo.git"
+  },
+  "keywords": [
+    "tiger",
+    "shapefile",
+    "mongo",
+    "shp",
+    "geojson"
+  ],
+  "author": "Chris Hayen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tenhaus/shapefile2mongo/issues"
+  },
+  "homepage": "https://github.com/tenhaus/shapefile2mongo"
+}
