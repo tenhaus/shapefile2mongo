@@ -29,7 +29,7 @@ function downloadShapeFile(url) {
   return deferred.promise;
 }
 
-function importShapeFileFromZip(path) {
+function createGeoJsonForShapeZip(path) {
   var deferred = q.defer();
 
   var tmp = os.tmpdir();
@@ -51,14 +51,17 @@ function importShapeFileFromZip(path) {
   return deferred.promise;
 }
 
+function writeJsonToCollection(jsonPath, collection) {
+}
+
 module.exports = {
 
   importShapefileFromZip: function(zipPath) {
     var deferred = q.defer();
 
-    importShapeFileFromZip(zipPath)
-    .then(function(shapePath) {
-      deferred.resolve(shapePath);
+    createGeoJsonForShapeZip(zipPath)
+    .then(function(jsonPath) {
+      deferred.resolve(jsonPath);
     })
     .catch(function(err){
       deferred.reject(new Error(err));
@@ -84,10 +87,6 @@ module.exports = {
       });
     }
 
-
     return deferred.promise;
   }
-
-
-
 };
