@@ -26,7 +26,8 @@
     "meow": "^2.0.0",
     "q": "^1.1.2",
     "shapefile": "^0.3.0",
-    "shapefile-fairy": "^0.2.1"
+    "shapefile-fairy": "^0.2.1",
+    "validator": "^3.27.0"
   },
   "devDependencies": {
     "grunt-cli": "^0.1.13",
