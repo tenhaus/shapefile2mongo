@@ -6,6 +6,8 @@ var fs = require('fs');
 var http = require('http');
 var validator = require('validator');
 var randomstring = require("randomstring");
+// var shpFairy = require('shapefile-fairy');
+var shp2json = require('shp2json');
 
 function downloadShapeFile(url) {
   var deferred = q.defer();
@@ -27,7 +29,43 @@ function downloadShapeFile(url) {
   return deferred.promise;
 }
 
+function importShapeFileFromZip(path) {
+  var deferred = q.defer();
+
+  var tmp = os.tmpdir();
+  var random = randomstring.generate();
+  var jsonPath = tmp + random + '.geoJson';
+
+  var readStream = fs.createReadStream(path);
+  var writeStream = fs.createWriteStream(jsonPath);
+
+  shp2json(readStream).pipe(writeStream);
+
+  writeStream.on('close', function() {
+    deferred.resolve(jsonPath);
+  })
+  .on('error', function(err) {
+    deferred.reject(new Error(err));
+  });
+
+  return deferred.promise;
+}
+
 module.exports = {
+
+  importShapefileFromZip: function(zipPath) {
+    var deferred = q.defer();
+
+    importShapeFileFromZip(zipPath)
+    .then(function(shapePath) {
+      deferred.resolve(shapePath);
+    })
+    .catch(function(err){
+      deferred.reject(new Error(err));
+    });
+
+    return deferred.promise;
+  },
 
   importShapefileFromUrl: function(url) {
     var deferred = q.defer();
@@ -38,9 +76,11 @@ module.exports = {
     }
     else {
       downloadShapeFile(url)
-      .then(function(path) {
-        
-        deferred.resolve(path);
+      .then(function(zipPath) {
+        importShapeFileFromZip(zipPath)
+        .then(function(shapePath) {
+          deferred.resolve(shapePath);
+        });
       });
     }
 

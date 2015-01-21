@@ -27,7 +27,7 @@
     "q": "^1.1.2",
     "randomstring": "^1.0.3",
     "shapefile": "^0.3.0",
-    "shapefile-fairy": "^0.2.1",
+    "shp2json": "^1.0.5",
     "validator": "^3.27.0"
   },
   "devDependencies": {
