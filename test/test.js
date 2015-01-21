@@ -9,7 +9,7 @@ var localShapePath = 'test/state.zip';
 describe('shapefile2mongo node module', function () {
 
   it('must import shapefile from file', function (done) {
-    this.timeout(50000);
+    this.timeout(0);
     shapefile2mongo.importShapefileFromZip(localShapePath)
     .then(function(result) {
       console.log(result);

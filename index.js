@@ -6,7 +6,6 @@ var fs = require('fs');
 var http = require('http');
 var validator = require('validator');
 var randomstring = require("randomstring");
-// var shpFairy = require('shapefile-fairy');
 var shp2json = require('shp2json');
 
 function downloadShapeFile(url) {
@@ -51,8 +50,8 @@ function createGeoJsonForShapeZip(path) {
   return deferred.promise;
 }
 
-function writeJsonToCollection(jsonPath, collection) {
-}
+// function writeJsonToCollection(jsonPath, collection) {
+// }
 
 module.exports = {
 
@@ -80,9 +79,9 @@ module.exports = {
     else {
       downloadShapeFile(url)
       .then(function(zipPath) {
-        importShapeFileFromZip(zipPath)
-        .then(function(shapePath) {
-          deferred.resolve(shapePath);
+        createGeoJsonForShapeZip(zipPath)
+        .then(function(jsonPath) {
+          deferred.resolve(jsonPath);
         });
       });
     }
