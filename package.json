@@ -1,0 +1,44 @@
+{
+  "name": "shapefile2mongo",
+  "version": "0.0.0",
+  "description": "Converts shapefiles to geojson and then imports them to mongo",
+  "homepage": "https://github.com/tenhaus/shapefile2mongo",
+  "author": {
+    "name": "Chris Hayen",
+    "email": "chris.hayen@tenhaus.com",
+    "url": "http://www.tenhaus.com"
+  },
+  "repository": "tenhaus/shapefile2mongo",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "keywords": [
+    "shapefile2mongo",
+    "mongo",
+    "shapefile",
+    "geojson",
+    "shp",
+    "tiger"
+  ],
+  "dependencies": {
+    "meow": "^2.0.0"
+  },
+  "devDependencies": {
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^1.0.0",
+    "time-grunt": "^1.0.0",
+    "grunt-mocha-cli": "^1.11.0",
+    "jshint-stylish": "^1.0.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "bin": {
+    "shapefile2mongo": "cli.js"
+  }
+}
