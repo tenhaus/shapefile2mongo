@@ -23,7 +23,9 @@
     "tiger"
   ],
   "dependencies": {
-    "meow": "^2.0.0"
+    "meow": "^2.0.0",
+    "shapefile": "^0.3.0",
+    "shapefile-fairy": "^0.2.1"
   },
   "devDependencies": {
     "grunt-cli": "^0.1.13",
