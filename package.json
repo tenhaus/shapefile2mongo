@@ -25,6 +25,7 @@
   "dependencies": {
     "meow": "^2.0.0",
     "q": "^1.1.2",
+    "randomstring": "^1.0.3",
     "shapefile": "^0.3.0",
     "shapefile-fairy": "^0.2.1",
     "validator": "^3.27.0"
