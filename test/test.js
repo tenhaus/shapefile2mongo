@@ -13,32 +13,11 @@ describe('shapefile2mongo node module', function () {
     shapefile2mongo.importShapefileFromZip(localShapePath)
     .then(function(result) {
       console.log(result);
-      // assert.equal('good', result);
+      assert.equal('good', result);
       done();
     })
     .catch(function(err){
       done(err);
-    });
-  });
-
-  // it('must import shapefile from url', function (done) {
-  //   this.timeout(50000);
-  //   shapefile2mongo.importShapefileFromUrl(shapeUrl)
-  //   .then(function(result) {
-  //     console.log(result);
-  //     // assert.equal('good', result);
-  //     done();
-  //   })
-  //   .catch(function(err){
-  //     done(err);
-  //   });
-  // });
-
-  it('must reject invalid url', function(done) {
-    shapefile2mongo.importShapefileFromUrl('http:/this.com')
-    .catch(function() {
-      assert(true);
-      done();
     });
   });
 

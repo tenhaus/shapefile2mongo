@@ -27,10 +27,11 @@
     "mongoose": "^3.8.21",
     "parsedbf": "0.0.1",
     "q": "^1.1.2",
-    "randomstring": "^1.0.3",
     "shapefile": "^0.3.0",
-    "shp2json": "^1.0.5",
-    "validator": "^3.27.0"
+    "shapefile-fairy": "^0.2.1",
+    "shapefile-stream": "0.0.4",
+    "stream-json": "^0.1.0",
+    "through2": "^0.6.3"
   },
   "devDependencies": {
     "grunt-cli": "^0.1.13",
