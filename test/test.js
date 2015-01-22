@@ -3,17 +3,19 @@
 var assert = require('assert');
 var shapefile2mongo = require('../');
 // var mongo = require('mongo-mocha')('mongodb://localhost');
-// var shapeUrl = 'http://www2.census.gov/geo/tiger/TIGER2014/STATE/tl_2014_us_state.zip';
 var localShapePath = 'test/state.zip';
 
 describe('shapefile2mongo node module', function () {
 
   it('must import shapefile from file', function (done) {
     this.timeout(0);
-    shapefile2mongo.importShapefileFromZip(localShapePath)
+    shapefile2mongo.importShapefileFromZip(
+      localShapePath,
+      'mongodb://localhost/test'
+    )
     .then(function(result) {
       console.log(result);
-      assert.equal('good', result);
+      assert.equal(result, true);
       done();
     })
     .catch(function(err){
